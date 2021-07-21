@@ -7,6 +7,7 @@ import Signup from '../views/Signup.vue';
 import Login from '../views/Login.vue';
 import Logout from '../views/Logout.vue';
 import PostsIndex from '../views/PostsIndex.vue';
+import PostsCreate from '../views/PostsCreate.vue';
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/posts',
     name: 'Posts',
     component: PostsIndex
+  },
+  {
+    path: '/posts/new',
+    name: 'Post Create',
+    component: PostsCreate
   }
 ];
 
