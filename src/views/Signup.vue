@@ -41,7 +41,7 @@ export default {
       axios
         .post("/users", this.newUserParams)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           this.$router.push("/login");
         })
         .catch((error) => {
