@@ -10,22 +10,11 @@
 <style></style>
 
 <script>
-import axios from "axios";
 export default {
   data: function () {
-    return {
-      posts: [],
-    };
+    return {};
   },
-  created: function () {
-    this.postsIndex();
-  },
-  methods: {
-    postsIndex: function () {
-      axios.get("/posts").then((response) => {
-        this.posts = response.data;
-      });
-    },
-  },
+  created: function () {},
+  methods: {},
 };
 </script>
