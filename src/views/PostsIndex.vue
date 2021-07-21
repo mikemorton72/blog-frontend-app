@@ -2,8 +2,9 @@
   <div class="home">
     <h1>Posts</h1>
     <div v-for="post in posts">
-      <p>{{ post.id }}</p>
-      <p><strong>{{ post.title }}</strong></p>
+      <!-- <p>{{ post }}</p> -->
+      <p>{{ post.title }}</strong></p>
+      <p>Author: {{ post.user.name }}</p>
       <img v-bind:src="post.image">
       <p>{{ post.body }}</p>
       <hr />
