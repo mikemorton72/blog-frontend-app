@@ -25,6 +25,10 @@ export default {
   created: function () {},
   methods: {
     postsCreate: function () {
+      if (!this.newPost.image) {
+        this.newPost.image =
+          "https://socialmedia4us.files.wordpress.com/2018/01/blog.jpg";
+      }
       axios
         .post("/posts", this.newPost)
         .then((response) => {
