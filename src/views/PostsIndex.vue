@@ -5,7 +5,9 @@
       <!-- <p>{{ post }}</p> -->
       <p>{{ post.title }}</strong></p>
       <p>Author: {{ post.user.name }}</p>
+      <a v-bind:href="`/posts/${post.id}`"> 
       <img v-bind:src="post.image">
+      </a>
       <p>{{ post.body }}</p>
       <hr />
     </div>
