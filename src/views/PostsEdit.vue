@@ -8,6 +8,9 @@
     <p>Body: <input type="text" v-model="editPostParams.body"></p>
     <p>Image URL: <input type="text" v-model="editPostParams.image"></p>
     <button v-on:click="postsUpdate()">Update</button>
+    <br />
+    <br />
+    <button v-on:click="postsDestroy()">Delete</button> 
   </div>
 </template>
 
@@ -41,6 +44,10 @@ export default {
           console.log(errors.response.data.errors);
           this.errors = errors.response.data.errors;
         });
+    },
+    postsDestroy: function () {
+      axios.delete(`/posts/${this.$route.params.id}`);
+      this.$router.push(`/posts`);
     },
   },
 };
