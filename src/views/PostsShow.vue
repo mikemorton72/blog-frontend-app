@@ -5,6 +5,7 @@
     <p>Author: {{ post.user.name }}</p>
     <img v-bind:src ='post.image'>
     <p>{{ post.body }}</p>
+    <button v-on:click="goToEdit()">Edit</button>
   </div>
 </template>
 
@@ -28,13 +29,15 @@ export default {
   },
   created: function () {
     this.postsShow();
-    console.log(this.$route);
   },
   methods: {
     postsShow: function () {
       axios.get(`/posts/${this.$route.params.id}`).then((response) => {
         this.post = response.data;
       });
+    },
+    goToEdit: function () {
+      this.$router.push(`/posts/${this.$route.params.id}/edit`);
     },
   },
 };
