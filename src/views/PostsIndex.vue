@@ -5,7 +5,8 @@
     <div v-for="post in posts">
       <p>{{ post.id }}</p>
       <p>{{ post.title }}</strong></p>
-      <p>Author: {{ post.user.name }}</p>
+      <p v-if="post.user.id == $parent.getUserId()">Author: YOU</p>
+      <p v-if="!(post.user.id == $parent.getUserId())">Author: {{ post.user.name }}</p>
       <a v-bind:href="`/posts/${post.id}`"> 
       <img v-bind:src="post.image">
       </a>

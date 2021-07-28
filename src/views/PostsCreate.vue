@@ -47,7 +47,7 @@ export default {
         .then((response) => {
           // console.log(response.data);
           this.newPost = {};
-          this.$router.push("/posts");
+          this.$router.push("/");
         })
         .catch((errors) => {
           // console.log(errors.response.data.errors);
