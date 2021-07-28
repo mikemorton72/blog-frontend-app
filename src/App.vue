@@ -42,10 +42,8 @@ export default {
   methods: {
     isLoggedIn: function () {
       if (localStorage.jwt) {
-        console.log("logged in");
         return true;
       } else {
-        console.log("not logged in");
         return false;
       }
     },
