@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <h1>Posts</h1>
-    <p>Search <input type="text" v-model="filterTerm"></p>
+    <small><p><b>Selected Filter Categories: </b><span v-for="category in filterCategories">{{category}}, </span></p></small>  
+    <p><small>Search Category Toggle: <button v-on:click="toggleFilterCategory('all')">All</button> <button v-on:click="toggleFilterCategory('title')">Title</button> <button v-on:click="toggleFilterCategory('body')">Body</button> <button v-on:click="toggleFilterCategory('user.name')">User</button></small></p>
+    <p>Search: <input type="text" v-model="filterTerm"></p>
+    <br />
     <p>Sort By: <button v-on:click="sortByName">Name</button><button v-on:click="sortById">ID</button></p>
-    <div v-for="post in filterBy(posts, filterTerm)">
+    <div v-for="post in filterBy(posts, filterTerm, filterCategories)">
       <p>{{ post.id }}</p>
       <p>{{ post.title }}</strong></p>
       <p v-if="post.user.id == $parent.getUserId()">Author: YOU</p>
@@ -32,6 +34,7 @@ export default {
     return {
       posts: [],
       filterTerm: "",
+      filterCategories: ["title", "body", "user.name"],
     };
   },
   created: function () {
@@ -48,6 +51,23 @@ export default {
     },
     sortById: function () {
       this.posts = this.posts.sort((a, b) => a.id - b.id);
+    },
+    toggleFilterCategory: function (category) {
+      if (category === "all") {
+        this.filterCategories = ["title", "body", "user.name"];
+      } else {
+        if (this.filterCategories.includes(category)) {
+          this.filterCategories.splice(
+            this.filterCategories.indexOf(category),
+            1
+          );
+        } else {
+          this.filterCategories.push(category);
+        }
+      }
+    },
+    printAThing: function (thing) {
+      console.log(thing);
     },
   },
 };
