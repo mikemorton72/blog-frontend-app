@@ -15,11 +15,6 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
     path: '/test',
     name: 'Test',
     component: Test
@@ -45,7 +40,7 @@ const routes = [
     component: Logout
   },
   {
-    path: '/posts',
+    path: '/',
     name: 'Posts',
     component: PostsIndex
   },
